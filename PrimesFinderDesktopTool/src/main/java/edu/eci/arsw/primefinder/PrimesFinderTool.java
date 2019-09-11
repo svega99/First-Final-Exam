@@ -13,35 +13,23 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 
 public class PrimesFinderTool {
-
+        
+       static boolean running=true;
+    
 	public static void main(String[] args) {
 		            
             int maxPrim=1000;
             
-            PrimesResultSet prs=new PrimesResultSet("john");
             
-            PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("10000"), prs);
+            PrimesResultSet prs=new PrimesResultSet("jon");
+            
+            PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("100"), prs);
+            running=false;
             
             System.out.println("Prime numbers found:");
             
             System.out.println(prs.getPrimes());
             
-            
-            /*while(task_not_finished){
-                try {
-                    //check every 10ms if the idle status (10 seconds without mouse
-                    //activity) was reached. 
-                    Thread.sleep(10);
-                    if (MouseMovementMonitor.getInstance().getTimeSinceLastMouseMovement()>10000){
-                        System.out.println("Idle CPU ");
-                    }
-                    else{
-                        System.out.println("User working again!");
-                    }
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(PrimesFinderTool.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }*/
                         
             
             
@@ -49,6 +37,10 @@ public class PrimesFinderTool {
             
 	}
 	
+        
+       public static boolean isRunning(){
+           return running;
+       }
 }
 
 

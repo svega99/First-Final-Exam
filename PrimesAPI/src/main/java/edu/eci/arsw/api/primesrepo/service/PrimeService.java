@@ -11,7 +11,7 @@ import java.util.List;
 public interface PrimeService
 {
 
-    void addFoundPrime( FoundPrime foundPrime );
+    void addFoundPrime( FoundPrime foundPrime ) throws PrimeServiceException;
 
     List<FoundPrime> getFoundPrimes();
 
